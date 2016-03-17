@@ -8,6 +8,7 @@
         props: {
             show: {
                 type: Boolean,
+                twoWay: true,
                 default: false
             },
             title: {
