@@ -64,6 +64,13 @@
                 default: false
             }
         },
+        data () {
+            return {
+                marginTop: null,
+                marginBottom: null,
+                duration: null
+            };
+        },
         computed: {
             modalClass () {
                 return {
@@ -75,24 +82,27 @@
         },
         watch: {
             show (value) {
+                // 太长的modal，在显示时去掉body滚动条，防止出现双滚动条
                 if (value) {
-                    // 太长的modal，在显示时去掉body滚动条，防止出现双滚动条
-                    let style = window.getComputedStyle(this.$els.dialog),
-                        mt = +style['margin-top'].replace('px', ''),
-                        mb = +style['margin-bottom'].replace('px', '');
+                    if (!this.marginTop) {
+                        let style = window.getComputedStyle(this.$els.dialog);
+                        this.marginTop = +style['margin-top'].replace('px', '');
+                        this.marginBottom = +style['margin-bottom'].replace('px', '');
+                    }
 
-                    if (this.$els.dialog.clientHeight + mt + mb + 10 > window.innerHeight) {
-                        //document.body.className += ' modal-open-noscroll';
+                    if (this.$els.dialog.clientHeight + this.marginTop + this.marginBottom + 10 > window.innerHeight) {
                         document.body.style.overflowY = 'hidden';
                     }
-                } else {
-                    // 在modal动画结束后再加上body滚动条
-                    let duration = window.getComputedStyle(this.$el)['transition-duration'].replace('s', '') * 1000;
+                }
+                // 在modal动画结束后再加上body滚动条
+                else {
+                    if (!this.duration) {
+                        this.duration = window.getComputedStyle(this.$el)['transition-duration'].replace('s', '') * 1000;
+                    }
 
                     window.setTimeout(() => {
-                        //document.body.className = document.body.className.replace('modal-open-noscroll', '');
                         document.body.style.overflowY = 'auto';
-                    }, duration);
+                    }, this.duration);
                 }
             }
         },

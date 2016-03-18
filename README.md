@@ -10,7 +10,7 @@ import Bootstrap.css
 ```
 <link href="bootstrap.css"></link>
 ```
-** NOTE: **  By default, the modal style is pure bootstrap style, you can use any 3rd party bootstrap framework, like above GIF.
+**NOTE:**  By default, the modal style is pure bootstrap style, you can use any 3rd party bootstrap framework, like above GIF.
 
 
 simple options:
@@ -22,12 +22,11 @@ simple options:
 
 <!--custom content-->
 <modal title="Modal Title" :show.sync="show" @ok="ok" @cancel="cancel">
-    <p>Modal Body1</p>
-    <div>Modal Body2</div>
+    <div>Modal Body</div>
     
-    <p slot="header">Modal Header</p>
-    <p slot="title">Modal Title</p>
-    <p slot="footer">Modal Footer</p>
+    <div slot="header">Modal Header</div>
+    <div slot="title">Modal Title</div>
+    <div slot="footer">Modal Footer</div>
 </modal>
 
 ```
