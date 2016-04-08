@@ -1,9 +1,13 @@
 {
   "name": "vue-bootstrap-modal",
   "description": "Bootstrap Style Modal for Vue",
-  "version": "0.1.10",
+  "version": "0.1.13",
   "author": "coffce",
   "main": "./src/modal.vue",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Coffcer/vue-bootstrap-modal"
+  },
   "keywords": [
     "vue",
     "modal",

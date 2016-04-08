@@ -86,21 +86,12 @@
             }
         },
         destroyed () {
-            document.body.className = document.body.className.replace(/ modal-open/g, '');
+            document.body.className = document.body.className.replace(' modal-open', '');
         },
         watch: {
             show (value) {
-                // 太长的modal，在显示时去掉body滚动条，防止出现双滚动条
+                // 在显示时去掉body滚动条，防止出现双滚动条
                 if (value) {
-                    /*if (!this.marginTop) {
-                        let style = window.getComputedStyle(this.$els.dialog);
-                        this.marginTop = +style['margin-top'].replace('px', '');
-                        this.marginBottom = +style['margin-bottom'].replace('px', '');
-                    }
-
-                    if (this.$els.dialog.clientHeight + this.marginTop + this.marginBottom + 10 > window.innerHeight) {
-                        document.body.style.overflowY = 'hidden';
-                    }*/
                     document.body.className += ' modal-open';
                 }
                 // 在modal动画结束后再加上body滚动条
@@ -110,9 +101,7 @@
                     }
 
                     window.setTimeout(() => {
-                        document.body.className = document.body.className.replace(/ modal-open/g, '');
-                        //document.body.className = document.body.className.replace(' modal-open', '');
-                        /*document.body.style.overflowY = 'auto';*/
+                        document.body.className = document.body.className.replace(' modal-open', '');
                     }, this.duration || 0);
                 }
             }
