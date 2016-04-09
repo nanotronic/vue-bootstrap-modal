@@ -133,7 +133,7 @@
                     <!--Header-->
                     <div class="modal-header">
                         <slot name="header">
-                            <button type="button" class="close" @click="cancel"></button>
+                            <button type="button" class="close" @click="cancel">x</button>
                             <h4 class="modal-title">
                                 <slot name="title">
                                     {{title}}
