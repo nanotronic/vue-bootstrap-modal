@@ -66,8 +66,6 @@
         },
         data () {
             return {
-                /*marginTop: null,
-                marginBottom: null,*/
                 duration: null
             };
         },
