@@ -83,7 +83,7 @@
                 document.body.className += ' modal-open';
             }
         },
-        destroyed () {
+        beforeDestroy () {
             document.body.className = document.body.className.replace(' modal-open', '');
         },
         watch: {

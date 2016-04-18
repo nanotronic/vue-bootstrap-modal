@@ -1,7 +1,7 @@
 {
   "name": "vue-bootstrap-modal",
   "description": "Bootstrap Style Modal for Vue",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "author": "coffce",
   "main": "./src/modal.vue",
   "repository": {
