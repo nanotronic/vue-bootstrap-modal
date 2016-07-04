@@ -80,17 +80,17 @@
         },
         created () {
             if (this.show) {
-                document.body.className += ' modal-open';
+                document.body.classList.add('modal-open');
             }
         },
         beforeDestroy () {
-            document.body.className = document.body.className.replace(' modal-open', '');
+            document.body.classList.remove('modal-open');
         },
         watch: {
             show (value) {
                 // 在显示时去掉body滚动条，防止出现双滚动条
                 if (value) {
-                    document.body.className += ' modal-open';
+                    document.body.classList.add('modal-open');
                 }
                 // 在modal动画结束后再加上body滚动条
                 else {
@@ -99,7 +99,7 @@
                     }
 
                     window.setTimeout(() => {
-                        document.body.className = document.body.className.replace(' modal-open', '');
+                        document.body.classList.remove('modal-open');
                     }, this.duration || 0);
                 }
             }
